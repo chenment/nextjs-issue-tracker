@@ -10,8 +10,14 @@ import 'easymde/dist/easymde.min.css'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import SimpleMDE from 'react-simplemde-editor'
+// import SimpleMDE from 'react-simplemde-editor'
 import { z } from 'zod'
+import dynamic from 'next/dynamic'
+
+const SimpleMDE = dynamic(
+  () => import('react-simplemde-editor'),
+  { ssr: false }
+)
 
 type IssueFormData = z.infer<typeof createIssueShema>
 
@@ -51,7 +57,7 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
           control={control}
           defaultValue={issue?.description}
           render={({ field }) => (
-            <SimpleMDE placeholder="Description" {...field}></SimpleMDE>
+            <SimpleMDE placeholder="Description" {...field} ref={null}></SimpleMDE>
           )}
         />
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
