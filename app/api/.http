@@ -12,3 +12,6 @@ PATCH http://localhost:3000/api/issues/4
   "title": "Bug 2+",
   "description": "Description of bug 2+"
 }
+
+###
+DELETE http://localhost:3000/api/issues/8
