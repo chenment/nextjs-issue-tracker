@@ -4,3 +4,11 @@ POST http://localhost:3000/api/issues
   "title": "First issue",
   "description": "Description of the first issue"
 }
+
+###
+PATCH http://localhost:3000/api/issues/4
+
+{
+  "title": "Bug 2+",
+  "description": "Description of bug 2+"
+}
